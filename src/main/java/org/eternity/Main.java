@@ -18,8 +18,9 @@ import static org.eternity.reservation.domain.DiscountPolicy.PolicyType.AMOUNT_P
 public class Main {
     private ScreeningDAO screeningDAO = new ScreeningMemoryDAO();
     private MovieDAO movieDAO = new MovieMemoryDAO();
-    private DiscountPolicyDAO discountPolicyDAO = new DiscountPolicyMemoryDAO();
+
     private DiscountConditionDAO discountConditionDAO = new DiscountConditionMemoryDAO();
+    private DiscountPolicyDAO discountPolicyDAO = new DiscountPolicyMemoryDAO(discountConditionDAO);
     private ReservationDAO reservationDAO = new ReservationMemoryDAO();
 
     ReservationService reservationService = new ReservationService(
